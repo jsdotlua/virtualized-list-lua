@@ -220,7 +220,7 @@ export type Props<ItemT> = VirtualizedListProps & FlatListProps<ItemT>
 
 export type FlatList<ItemT> = {
 	props: Props<ItemT>,
-	scrollToEnd: (self: FlatList<ItemT>, params: ({ animated: boolean? })?) -> (),
+	scrollToEnd: (self: FlatList<ItemT>, params: { animated: boolean? }?) -> (),
 	scrollToIndex: (
 		self: FlatList<ItemT>,
 		params: {
@@ -264,9 +264,9 @@ export type FlatList<ItemT> = {
 			}
 		) -> ()
 	) -> (),
-	_renderer: () -> ({
+	_renderer: () -> {
 		[string]: (info: RenderItemProps<ItemT>) -> React.Node,
-	}),
+	},
 }
 
 --[[*
@@ -527,9 +527,9 @@ end
 --[[
 * Scrolls to the end of the content. May be janky without `getItemLayout` prop.
 ]]
-function FlatList:scrollToEnd(params: ({
+function FlatList:scrollToEnd(params: {
 	animated: boolean?,
-})?)
+}?)
 	if self._listRef then
 		self._listRef:scrollToEnd(params)
 	end
@@ -543,14 +543,12 @@ end
 * Note: cannot scroll to locations outside the render window without specifying the
 * `getItemLayout` prop.
 ]]
-function FlatList:scrollToIndex(
-	params: ({
-		animated: boolean?,
-		index: number,
-		viewOffset: number?,
-		viewPosition: number?,
-	})
-)
+function FlatList:scrollToIndex(params: {
+	animated: boolean?,
+	index: number,
+	viewOffset: number?,
+	viewPosition: number?,
+})
 	if self._listRef then
 		self._listRef:scrollToIndex(params)
 	end
@@ -690,14 +688,12 @@ function FlatList:_pushMultiColumnViewable(arr: Array<ViewToken>, v: ViewToken):
 		table.insert(arr, Object.assign({}, v, { item = item, key = keyExtractor(item, index), index = index }))
 	end)
 end
-function FlatList:_createOnViewableItemsChanged(
-	onViewableItemsChanged: ((
-		info: {
-			viewableItems: Array<ViewToken>,
-			changed: Array<ViewToken>,
-		}
-	) -> ())?
-)
+function FlatList:_createOnViewableItemsChanged(onViewableItemsChanged: ((
+	info: {
+		viewableItems: Array<ViewToken>,
+		changed: Array<ViewToken>,
+	}
+) -> ())?)
 	return function(info: {
 		viewableItems: Array<ViewToken>,
 		changed: Array<ViewToken>,

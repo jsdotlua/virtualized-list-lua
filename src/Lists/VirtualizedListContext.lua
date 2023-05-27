@@ -45,16 +45,14 @@ export type ChildListState = ReadOnly<{
 -- Data propagated through nested lists (regardless of orientation) that is
 -- useful for producing diagnostics for usage errors involving nesting (e.g
 -- missing/duplicate keys).
-export type ListDebugInfo = ReadOnly<
-	{
-		cellKey: string,
-		listKey: string,
-		parent: ListDebugInfo?,
-		-- We include all ancestors regardless of orientation, so this is not always
-		-- identical to the child's orientation.
-		horizontal: boolean,
-	}
->
+export type ListDebugInfo = ReadOnly<{
+	cellKey: string,
+	listKey: string,
+	parent: ListDebugInfo?,
+	-- We include all ancestors regardless of orientation, so this is not always
+	-- identical to the child's orientation.
+	horizontal: boolean,
+}>
 
 type Context = ReadOnly<{
 	cellKey: string?,
