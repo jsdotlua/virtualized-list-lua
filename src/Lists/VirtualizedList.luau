@@ -2646,14 +2646,10 @@ function CellRenderer:render()
 		parentProps.renderItem, parentProps.getItemLayout, parentProps.ListItemComponent
 	local element = self:_renderElement(renderItem, ListItemComponent, item, index)
 
-	local onLayout = 	--[[ $FlowFixMe[prop-missing] (>=0.68.0 site=react_native_fb) This comment
+	local onLayout = --[[ $FlowFixMe[prop-missing] (>=0.68.0 site=react_native_fb) This comment
      * suppresses an error found when Flow v0.68 was deployed. To see the
      * error delete this comment and run Flow. ]]
-if getItemLayout
-			and not parentProps.debug
-			and not fillRateHelper:enabled()
-		then nil
-		else self.props.onLayout
+		if getItemLayout and not parentProps.debug and not fillRateHelper:enabled() then nil else self.props.onLayout
 	-- NOTE: that when this is a sticky header, `onLayout` will get automatically extracted and
 	-- called explicitly by `ScrollViewStickyHeader`.
 	local itemSeparator = if ItemSeparatorComponent
