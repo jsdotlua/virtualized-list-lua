@@ -13,4 +13,25 @@
 
 ---
 
-TODO: Write rest of README
+A collection of virtual list components, supporting the most handy features:
+
+- Fully cross-platform
+- Optional horizontal mode
+- Configurable viewability callbacks
+- Header support
+- Footer support
+- Separator support
+- Pull to Refresh
+- Scroll loading
+- ScrollToIndex support
+- Multiple column support
+
+Virtualization massively improves memory consumption and performance of large lists by maintaining a finite render window of active items and replacing all items outside of the render window with appropriately sized blank space. The window adapts to scrolling behavior, and items are rendered incrementally with low-pri (after any running interactions) if they are far from the visible area, or with hi-pri otherwise to minimize the potential of seeing blank space.
+
+## Documentation
+
+More information on the provided list components can be found at:
+
+- `VirtualizedList` - https://reactnative.dev/docs/virtualizedlist
+- `FlatList` - https://reactnative.dev/docs/flatlist
+- `SectionList` - https://reactnative.dev/docs/sectionlist
