@@ -6,6 +6,6 @@ realm = "shared"
 
 [dependencies]
 LuauPolyfill = 'jsdotlua/luau-polyfill@1.2.3'
-# Otter = 'core-packages/otter@1.1.0'
+Flipper = "reselim/flipper@2.0.0"
 Promise = 'evaera/promise@4.0.0'
 React = 'core-packages/react@17.0.1-rc.19'

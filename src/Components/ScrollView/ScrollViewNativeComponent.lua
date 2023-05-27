@@ -24,11 +24,11 @@ local React = require(Packages.React)
 local Change = React.Change
 local Event = React.Event
 
-local Otter = require(Packages.Otter)
+local Flipper = require(Packages.Flipper)
 
 local DEFAULT_ANIMATION_CONFIG = {
-	restingPositionLimit = 1,
-	restingVelocityLimit = 10,
+	frequency = 1,
+	dampingRatio = 1,
 }
 
 local ScrollViewNativeComponent = React.Component:extend("ScrollViewNativeComponent")
@@ -39,7 +39,7 @@ function ScrollViewNativeComponent:init(props)
 
 	self.animationConfig = if self.props.animationConfig then self.props.animationConfig else DEFAULT_ANIMATION_CONFIG
 
-	self.motor = Otter.createGroupMotor({
+	self.motor = Flipper.GroupMotor.new({
 		x = 0,
 		y = 0,
 	})
@@ -90,8 +90,8 @@ function ScrollViewNativeComponent:_startAnimatedScroll(x, y)
 	local currentCanvasPosition = self._nativeRef.current.CanvasPosition
 
 	self.motor:setGoal({
-		x = Otter.instant(currentCanvasPosition.X),
-		y = Otter.instant(currentCanvasPosition.Y),
+		x = Flipper.Instant.new(currentCanvasPosition.X),
+		y = Flipper.Instant.new(currentCanvasPosition.Y),
 	})
 
 	--[[
@@ -101,8 +101,8 @@ function ScrollViewNativeComponent:_startAnimatedScroll(x, y)
 	self.motor:step(0)
 
 	self.motor:setGoal({
-		x = Otter.spring(x, self.animationConfig),
-		y = Otter.spring(y, self.animationConfig),
+		x = Flipper.Spring.new(x, self.animationConfig),
+		y = Flipper.Spring.new(y, self.animationConfig),
 	})
 end
 

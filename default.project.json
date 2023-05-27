@@ -12,6 +12,9 @@
         "LuauPolyfill": {
             "$path": "Packages/LuauPolyfill.lua"
         },
+        "Flipper": {
+            "$path": "Packages/Flipper.lua"
+        },
         "Promise": {
             "$path": "Packages/Promise.lua"
         },
