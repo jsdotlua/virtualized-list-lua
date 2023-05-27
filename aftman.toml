@@ -1,0 +1,7 @@
+[tools]
+rojo = "UpliftGames/rojo@7.3.0-uplift.11"
+wally = "grilme99/wally@0.4.0"
+stylua = "johnnymorganz/stylua@0.17.1"
+luau-lsp = "johnnymorganz/luau-lsp@1.20.2"
+selene = "Kampfkarren/selene@0.25.0"
+wally-package-types = "johnnymorganz/wally-package-types@1.2.1"

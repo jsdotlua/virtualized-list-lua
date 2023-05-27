@@ -1,0 +1,9 @@
+std = "roblox"
+
+[lints]
+# _G is used for global development feature flags
+global_usage = "allow"
+shadowing = "allow"
+
+# TODO: Actually fix unused varaibles. This is just a bandaid.
+unused_variable = "allow"

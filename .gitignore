@@ -1,0 +1,6 @@
+Packages/
+
+.DS_Store
+
+sourcemap.json
+globalTypes.d.lua

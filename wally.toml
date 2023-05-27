@@ -1,0 +1,11 @@
+[package]
+name = "jsdotlua/virtualized-list"
+version = "1.3.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+LuauPolyfill = 'jsdotlua/luau-polyfill@1.2.3'
+# Otter = 'core-packages/otter@1.1.0'
+Promise = 'evaera/promise@4.0.0'
+React = 'core-packages/react@17.0.1-rc.19'

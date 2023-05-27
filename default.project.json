@@ -1,0 +1,22 @@
+{
+    "name": "virtualized-list-lua",
+    "tree": {
+        "$className": "Folder",
+        "VirtualizedList": {
+            "$path": "src/"
+        },
+
+        "_Index": {
+            "$path": "Packages/_Index"
+        },
+        "LuauPolyfill": {
+            "$path": "Packages/LuauPolyfill.lua"
+        },
+        "Promise": {
+            "$path": "Packages/Promise.lua"
+        },
+        "React": {
+            "$path": "Packages/React.lua"
+        }
+    }
+}
