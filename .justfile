@@ -11,4 +11,4 @@ install-packages:
     rojo sourcemap dev.project.json --output sourcemap.json
     wally-package-types --sourcemap sourcemap.json Packages/
 
-    echo "{\"languageMode\": \"nonstrict\"}" > Packages/_Index/reselim_flipper@2.0.0/.luaurc
+    echo "{\"languageMode\": \"nonstrict\"}" > Packages/.luaurc
