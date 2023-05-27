@@ -1,5 +1,5 @@
 analyze: install-packages
-    rojo sourcemap default.project.json --output sourcemap.json
+    rojo sourcemap dev.project.json --output sourcemap.json
     curl -O https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/main/scripts/globalTypes.d.lua
     luau-lsp analyze --definitions=globalTypes.d.lua --base-luaurc=.luaurc --sourcemap=sourcemap.json src/
 
@@ -13,4 +13,4 @@ install-packages:
 
     echo "{\"languageMode\": \"nonstrict\"}" > Packages/_Index/reselim_flipper@2.0.0/.luaurc
     
-    rojo sourcemap default.project.json --output sourcemap.json
+    rojo sourcemap dev.project.json --output sourcemap.json
