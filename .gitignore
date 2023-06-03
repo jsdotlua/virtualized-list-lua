@@ -2,5 +2,8 @@ Packages/
 
 .DS_Store
 
+*.rbxl
+*.lock
+
 sourcemap.json
 globalTypes.d.lua
