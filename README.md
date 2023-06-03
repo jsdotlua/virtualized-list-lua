@@ -40,44 +40,67 @@ Virtualized lists aren't appropriate for all situations. Here's some caveats:
 ## Example
 
 ```lua
-local React = require(...)
-local VirtualizedList = require(...)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+
+local Packages = ReplicatedStorage.Packages
+
+local React = require(Packages.React)
+local ReactRoblox = require(Packages.ReactRoblox)
+local VirtualizedList = require(Packages.VirtualizedList)
 
 local View = VirtualizedList.View
-local FlatList = VirtualizedList.FlatView
+local FlatList = VirtualizedList.FlatList
 
 local e = React.createElement
 
-local DATA = {
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
-  },
-}
+local ITEM_COUNT = 10_000
+local DATA = table.create(ITEM_COUNT)
+
+for i = 1, ITEM_COUNT do
+  DATA[i] = {
+    id = HttpService:GenerateGUID(false),
+    title = `Item {i}`,
+  }
+end
 
 local function Item(props)
-    return e(View, {}, {
-        e("TextLabel", {
-            Size = UDim2.new(1, 0, 0, 40),
-            Text = props.title,
-        })
-    })
+  return e(View, {}, {
+    ItemText = e("TextLabel", {
+      Size = UDim2.new(1, 0, 0, 40),
+      Text = props.title,
+    }),
+  })
 end
 
 local function App()
-    return e(FlatList, {
+  return e("ScreenGui", {
+    ResetOnSpawn = false,
+    ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
+  }, {
+      Background = e("Frame", {
+      AnchorPoint = Vector2.new(0.5, 0.5),
+      Position = UDim2.fromScale(0.5, 0.5),
+      Size = UDim2.fromScale(0.25, 0.4),
+    }, {
+      List = e(FlatList, {
         data = DATA,
-        renderItem = Item,
-    })
+        renderItem = function(entry)
+          return e(Item, {
+            title = entry.item.title,
+          })
+        end,
+        keyExtractor = function(entry)
+          return entry.id
+        end,
+      }),
+    }),
+  })
 end
+
+local root = ReactRoblox.createRoot(Instance.new("Folder"))
+root:render(ReactRoblox.createPortal(e(App), Players.LocalPlayer.PlayerGui))
 ```
 
 ## Documentation

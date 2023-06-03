@@ -1,25 +1,30 @@
 {
     "name": "virtualized-list-lua",
     "tree": {
-        "$className": "Folder",
-        "VirtualizedList": {
-            "$path": "src/"
-        },
-
-        "_Index": {
-            "$path": "Packages/_Index"
-        },
-        "LuauPolyfill": {
-            "$path": "Packages/LuauPolyfill.lua"
-        },
-        "Flipper": {
-            "$path": "Packages/Flipper.lua"
-        },
-        "Promise": {
-            "$path": "Packages/Promise.lua"
-        },
-        "React": {
-            "$path": "Packages/React.lua"
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "$className": "Folder",
+            "Packages": {
+                "$className": "Folder",
+                "VirtualizedList": {
+                    "$path": "src/"
+                },
+                "_Index": {
+                    "$path": "Packages/_Index"
+                },
+                "LuauPolyfill": {
+                    "$path": "Packages/LuauPolyfill.lua"
+                },
+                "Flipper": {
+                    "$path": "Packages/Flipper.lua"
+                },
+                "Promise": {
+                    "$path": "Packages/Promise.lua"
+                },
+                "React": {
+                    "$path": "Packages/React.lua"
+                }
+            }
         }
     }
 }
