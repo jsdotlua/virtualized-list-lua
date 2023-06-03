@@ -44,7 +44,7 @@ function ScrollViewNativeComponent:init(props)
 		y = 0,
 	})
 
-	self.motorStepDisconnect = self.motor:onStep(function(canvasPosition)
+	self.motorStepConnection = self.motor:onStep(function(canvasPosition)
 		self._nativeRef.current.CanvasPosition = Vector2.new(canvasPosition.x, canvasPosition.y)
 	end)
 
@@ -182,8 +182,8 @@ function ScrollViewNativeComponent:willUnmount()
 		self.motor:destroy()
 	end
 
-	if self.motorStepDisconnect ~= nil then
-		self.motorStepDisconnect()
+	if self.motorStepConnection ~= nil then
+		self.motorStepConnection:disconnect()
 	end
 end
 
