@@ -409,7 +409,7 @@ function VirtualizedSectionList:render(): React_Node
 				return itemCount
 			end,
 			onViewableItemsChanged = if self.props.onViewableItemsChanged then self._onViewableItemsChanged else nil,
-			ref = self._captureRef,
+			-- ref = self._captureRef,
 		})
 	)
 end
