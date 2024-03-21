@@ -733,7 +733,7 @@ function FlatList:render(): React_Node
 			getItem = self._getItem,
 			getItemCount = self._getItemCount,
 			keyExtractor = self._keyExtractor,
-			-- ref = self._captureRef,
+			ref = self._captureRef,
 			viewabilityConfigCallbackPairs = self._virtualizedListPairs,
 			removeClippedSubviews = removeClippedSubviewsOrDefault(removeClippedSubviews),
 		}, self._renderer())
