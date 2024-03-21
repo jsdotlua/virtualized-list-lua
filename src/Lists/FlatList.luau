@@ -470,7 +470,7 @@ function FlatList:init<ItemT>(props: Props<ItemT>)
 					-- ROBLOX deviation: Adding this to layout the items depending on whether or not the horizontal prop is true
 					local UIListLayout = React.createElement("UIListLayout", {
 						key = if self.props.horizontal then "UIListVerticalLayout" else "UIListHorizontalLayout",
-						Name = if self.props.horizontal then "UIListVerticalLayout" else "UIListHorizontalLayout",
+						-- Name = if self.props.horizontal then "UIListVerticalLayout" else "UIListHorizontalLayout",
 						FillDirection = if self.props.horizontal
 							then Enum.FillDirection.Vertical
 							else Enum.FillDirection.Horizontal,
